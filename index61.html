@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function removeCharacters(str, charsToRemove) {
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+        let shouldRemove = false;
+        for (let j = 0; j < charsToRemove.length; j++) {
+            if (str[i] === charsToRemove[j]) {
+                shouldRemove = true;
+                break;
+            }
+        }
+        if (!shouldRemove) {
+            result += str[i];
+        }
+    }
+    return result;
+}
+
+let inputString = '';
+let inputStrPrompt = prompt("Введіть рядок");
+for(let i=0;i<inputStrPrompt.length;i++){
+    inputString += inputStrPrompt[i];
+}
+
+let charsToRemoveStr = '';
+let charsPrompt = prompt("Введіть символи для видалення");
+for(let i=0;i<charsPrompt.length;i++){
+    charsToRemoveStr += charsPrompt[i];
+}
+
+let charsToRemove = [];
+for (let i = 0; i < charsToRemoveStr.length; i++) {
+    if (charsToRemoveStr[i] !== ' ') {
+        charsToRemove[charsToRemove.length] = charsToRemoveStr[i];
+    }
+}
+
+console.log(removeCharacters(inputString, charsToRemove));
+
+</script>
+</body>
+</html>
